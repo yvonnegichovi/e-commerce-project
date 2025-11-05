@@ -38,7 +38,8 @@ services:
     environment:
       DATABASE_URL: postgresql://user:password@postgres:5432/ecommerce
       REDIS_URL: redis://redis:6379
-      SECRET_KEY: your-secret-key-change-in-production
+      # IMPORTANT: Change SECRET_KEY in production using .env file or Docker secrets
+      SECRET_KEY: ${SECRET_KEY:-your-secret-key-change-in-production}
     depends_on:
       postgres:
         condition: service_healthy
